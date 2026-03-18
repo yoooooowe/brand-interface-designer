@@ -106,6 +106,16 @@ Ready-to-use briefs for common screen types:
 ### `usage.md`
 A lightweight guide for composing the prompt files together.
 
+### `critique-mode.md`
+A focused review mode for using the agent as a sharper UI critic.
+
+It is built for:
+- reviewing existing screens
+- finding generic patterns
+- identifying weak hierarchy
+- deciding what to remove, merge, or quiet
+- pushing an interface from “usable” to “judged”
+
 ---
 
 ## Core idea
@@ -211,6 +221,7 @@ What should stay quiet:
 - reviewing a screen that feels “fine” but not distinctive
 - training a design-focused agent to make better aesthetic tradeoffs
 - pushing an existing interface toward stronger hierarchy and calmer surfaces
+- critiquing an existing UI to identify what should be removed before anything gets added
 
 ---
 

@@ -1,40 +1,76 @@
 # Brand Interface Designer
 
-A prompt kit for design agents that care about **taste**, not just tidy component specs.
+A taste-aware prompt kit for UI design agents.
 
-Most UI design prompts are good at producing:
+It is built for one specific problem:
+
+> most design prompts can produce structure, but very few can produce judgment.
+
+They are usually good at generating:
 - design systems
 - component inventories
 - accessibility checklists
-- developer handoff structure
+- developer handoff formats
 
-They are much worse at producing interfaces that feel:
+They are much worse at generating interfaces that feel:
 - calm
 - premium
 - branded
 - sharp
-- visually judged
+- intentional
+- non-generic
 
-This repo is an attempt to fix that.
+**Brand Interface Designer** is a small prompt library meant to push agents away from default SaaS output and toward stronger hierarchy, stronger taste, and clearer brand character.
+
+---
+
+## Why this exists
+
+A lot of UI design agents fall into one of two traps:
+
+### 1. Design-system brain
+The output is systematic, complete, and implementation-friendly — but visually forgettable.
+
+### 2. Dribbble brain
+The output looks stylish at first glance — but collapses under real product constraints, real content, and real usage.
+
+This repo tries to sit in the middle:
+- more taste than systems-only prompts
+- more rigor than decoration-heavy prompts
+- more brand sensitivity than generic UI kits
+- more restraint than trend-driven prompt packs
+
+---
 
 ## What this is
 
-**Brand Interface Designer** is a small prompt library for building a UI design agent that:
-- starts with visual attitude before components
-- protects brand character from generic SaaS patterns
-- uses hierarchy, typography, spacing, and restraint as the main tools of quality
+**Brand Interface Designer** is a prompt foundation for building a UI design agent that:
+- starts with **visual attitude before components**
+- protects brand character from generic product patterns
+- uses **hierarchy, typography, spacing, and restraint** as the main tools of quality
 - stays usable, scalable, and accessible
+- critiques interfaces by looking for weak hierarchy, over-cardification, and template energy
 
-It is not a Figma plugin, code generator, or design system framework.
-It is a **taste-aware prompt foundation** for design agents.
+It is **not**:
+- a Figma plugin
+- a code generator
+- a design token compiler
+- a complete design system framework
 
-## Who it is for
+It is a **prompt kit for more judged interface design**.
 
-This is for:
+---
+
+## Who this is for
+
+This repo is for:
 - product designers who want less template energy
 - brand/UI designers who care about visual judgment
-- teams building design agents or AI-assisted design workflows
-- anyone tired of prompts that output "clean modern SaaS UI" over and over again
+- teams building AI-assisted design workflows
+- people refining fintech / crypto / SaaS interfaces that feel too generic
+- anyone tired of prompts that keep outputting “clean modern SaaS UI” in slightly different clothes
+
+---
 
 ## What's inside
 
@@ -42,12 +78,12 @@ This is for:
 The main agent spec.
 
 It defines:
-- the role
+- the role and stance of the agent
 - aesthetic principles
-- workflow
-- hierarchy rules
+- workflow and hierarchy rules
 - anti-generic checks
 - how to turn brand into interface behavior
+- how to think about restraint, tone, and component language
 
 ### `references/taste-reference.md`
 The supporting taste system.
@@ -55,12 +91,22 @@ The supporting taste system.
 It explains:
 - what to learn from references like Robinhood, Linear, Apple, and editorial commerce
 - what to avoid in generic SaaS / crypto / UI-kit aesthetics
-- practical heuristics for judging whether a UI feels premium or templated
+- practical heuristics for judging whether a UI feels premium, controlled, or templated
+- how to translate taste into concrete interface decisions
 
 ### `examples/`
-Ready-to-use task briefs for common screen types.
+Ready-to-use briefs for common screen types:
+- login
+- dashboard
+- asset detail
+- landing page
+- onboarding
+- trading page
 
-These are meant to make the agent easier to use in real projects.
+### `usage.md`
+A lightweight guide for composing the prompt files together.
+
+---
 
 ## Core idea
 
@@ -74,15 +120,39 @@ That means:
 - remove before adding
 - let typography and composition do more work
 - make brand show up beyond color
+- avoid solving structure with more cards, borders, and UI containers
 
-## Suggested file composition
+---
 
-Use the main agent prompt as the base system prompt.
-Use `taste-reference.md` as a supporting reference when:
-- defining visual direction
-- evaluating refinement
-- critiquing existing UI
-- trying to avoid generic product patterns
+## What makes this different
+
+A lot of prompt libraries tell a model to make something "beautiful," "modern," or "premium".
+That usually produces familiar visual clichés.
+
+This repo tries to make aesthetic quality more operational.
+
+Instead of vague style goals, it emphasizes:
+- hierarchy
+- spacing rhythm
+- typography load
+- tonal restraint
+- container reduction
+- brand expression beyond color
+- anti-template heuristics
+- removal as a design move
+
+In other words: it tries to turn taste into something an agent can actually use.
+
+---
+
+## Recommended setup
+
+Use the files in this order:
+
+1. `agents/brand-led-ui-designer.md` as the base system/agent prompt
+2. `references/taste-reference.md` as supporting judgment and reference context
+3. one of the briefs in `examples/` as a starting point
+4. your own project context, constraints, and visual references
 
 A simple setup looks like this:
 
@@ -96,9 +166,9 @@ A simple setup looks like this:
    - what must stand out
    - what should stay quiet
 
-## Recommended prompt pattern
+---
 
-Use something like:
+## Recommended prompt pattern
 
 ```md
 Use the Brand-Led UI Designer perspective.
@@ -131,21 +201,27 @@ What should stay quiet:
 - [secondary content]
 ```
 
-## What makes this different
+---
 
-A lot of UI prompts collapse into one of two modes:
+## Good use cases
 
-### 1. Design-system brain
-Useful, but often too procedural.
-The output is correct, complete, and forgettable.
+- designing or critiquing dashboards
+- improving generic fintech / crypto UI
+- defining visual direction before building a component system
+- reviewing a screen that feels “fine” but not distinctive
+- training a design-focused agent to make better aesthetic tradeoffs
+- pushing an existing interface toward stronger hierarchy and calmer surfaces
 
-### 2. Dribbble brain
-Stylish at first glance, but weak under real product constraints.
+---
 
-This repo tries to sit in the middle:
-- more taste than systems-only prompts
-- more rigor than decoration-heavy prompts
-- more brand sensitivity than generic UI kits
+## Not ideal for
+
+- purely visual trend exploration
+- one-shot image generation prompts with no product logic
+- teams that only want token specs and component states
+- situations where a mature brand system already dictates every visual decision
+
+---
 
 ## Principles behind the repo
 
@@ -155,21 +231,9 @@ This repo tries to sit in the middle:
 - Too many cards usually means weak structure
 - If removing 15–20% improves the design, it probably needed editing
 - A strong interface should feel inevitable, not assembled
+- Taste is often visible in what gets removed, not what gets added
 
-## Good use cases
-
-- designing or critiquing dashboards
-- improving generic fintech / crypto UI
-- defining visual direction before building a component system
-- reviewing a screen that feels "fine" but not distinctive
-- training a design-focused agent to make better aesthetic tradeoffs
-
-## Not ideal for
-
-- purely visual trend exploration
-- one-shot image generation prompts with no product logic
-- teams that only want token specs and component states
-- highly specific brand systems that already have a mature visual director
+---
 
 ## Repo philosophy
 
@@ -180,6 +244,8 @@ They are weak because they lack judgment.
 
 So the goal here is not to add more UI.
 The goal is to make better decisions.
+
+---
 
 ## If you use this
 

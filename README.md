@@ -104,6 +104,9 @@ Ready-to-use briefs for common screen types:
 - landing page
 - onboarding
 - trading page
+- critique-dashboard
+- critique-landing-page
+- critique-trading-page
 
 ### `usage.md`
 A lightweight guide for composing the prompt files together.

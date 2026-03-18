@@ -117,6 +117,9 @@
 - landing page
 - onboarding
 - trading page
+- critique-dashboard
+- critique-landing-page
+- critique-trading-page
 
 ### `usage.md`
 一个轻量使用说明，讲这些文件怎么组合起来用。

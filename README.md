@@ -121,6 +121,9 @@ It is built for:
 - deciding what to remove, merge, or quiet
 - pushing an interface from “usable” to “judged”
 
+### `SHARE.md`
+Ready-to-use copy for sharing the repo in English and Chinese.
+
 ---
 
 ## Core idea

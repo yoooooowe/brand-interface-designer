@@ -1,5 +1,7 @@
 # Brand Interface Designer
 
+[中文说明](./README.zh-CN.md)
+
 A taste-aware prompt kit for UI design agents.
 
 It is built for one specific problem:
